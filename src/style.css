@@ -6,7 +6,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
+  background-color: slate;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,20 +18,14 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  /* color: #646cff; */
+  color: #668cff;
   text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
 a:hover {
-  color: #535bf2;
+  /* color: #535bf2; */
+  color: #1d6ac9;
 }
 
 body {
@@ -53,7 +48,8 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
+  background-color: #5c4f7d;
   cursor: pointer;
   transition: border-color 0.25s;
 }

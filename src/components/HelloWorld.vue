@@ -1,9 +1,5 @@
 <script setup>
-import { ref } from 'vue'
-
-defineProps({
-  msg: String
-})
+import { ref } from 'vue';
 
 const count = ref(0)
 </script>
@@ -30,7 +26,22 @@ const count = ref(0)
     in your IDE for a better DX
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <div>
+    <card />
+  </div>
+
 </template>
+
+<script>
+  import card from '@/components/BaseCard.vue';
+
+  export default {
+    name: 'Home',
+    components: {
+      card,
+    },
+  }
+</script>
 
 <style scoped>
 .read-the-docs {
