@@ -1,28 +1,34 @@
 <script setup>
-import { onMounted } from 'vue';
-// import { ref } from 'vue';
-// 
-// const count = ref(0)
+import { onMounted } from 'vue'
+import BaseCard from '@/components/BaseCard.vue'
+import useCharacters from '@/composables/useCharacters'
+
+const { characters, fetchCharacters, firstLoad } = useCharacters()
+
+onMounted(async () => {
+  if (firstLoad.value) {
+    await fetchCharacters()
+    firstLoad.value = false
+  }
+})
 </script>
 
 <template>
-  <div>
-    <h1>Hello</h1>
-    <card />
-  </div>
-
+  <button
+    title="Load Characters"
+    class="z-90 fixed bottom-8 right-8 flex h-20 w-20 items-center justify-center rounded-full bg-green-600 text-4xl text-white drop-shadow-lg duration-300 hover:scale-110 hover:bg-green-700 hover:drop-shadow-2xl"
+    @click="fetchCharacters"
+  >
+    🚀
+  </button>
+  <!--<main class="min-h-screen bg-gradient-to-r from-fuchsia-900 to-red-700">-->
+  <main class="min-h-screen bg-slate-700">
+    <div class="container mx-auto grid grid-cols-6 gap-4 py-8">
+      <BaseCard
+        v-for="character in characters"
+        :key="character._id"
+        :character="character"
+      />
+    </div>
+  </main>
 </template>
-
-<script>
-  import card from '@/components/BaseCard.vue';
-
-  export default {
-    name: 'Home',
-    components: {
-      card,
-    },
-  }
-</script>
-
-<style scoped>
-</style>
